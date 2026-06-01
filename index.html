@@ -41,7 +41,7 @@
                         <a class="nav-link" href="#projects">Projets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#contact">Contacts</a>
                     </li>
                 </ul>
             </div>
@@ -502,6 +502,32 @@ Mon objectif aujourd'hui est de rejoindre une entreprise afin de contribuer à d
                                 <span>Telegram</span>
                             </div>
                             <!-- <a href="#" class="btn btn-sm btn-primary">Voir les détails</a> -->
+                        </div>
+                        <div class="project-content">
+                          <h3>Configuration du Tunnel GRE</h3>
+                            <p>GRE est un protocole qui permet de créer des tunnels entre deux extrémités (Routeurs ou Pare-feu) Le tunnel créé permet de transporter n'importe quel type de trafic de la couche réseau notamment le Multicast et le Broadcast Il est très facile à configurer mais ne contient aucun mécanisme de sécurité. Ce qui veut dire que le trafic qui passe dans ce tunnel n'est pas sécurisé C'est la raison pour laquelle on le combine souvent à IPsec pour transporter à la fois du Multicast, du Broadcast, le trafic de routage ou n'importe quel paquet de la couche réseau tout en le sécurisant pendant qu'il passe dans le tunnel. Cette combinaison donnera alors naissance à ce que nous appelons GRE over IPsec qui va permettre de faire passer du trafic GRE dans un tunnel IPsec. Combiner les deux protocoles permet de dépasser les limites de l'un et l'autre afin de créer des tunnels VPN pouvant transporter plusieurs trafics réseaux d'une manière sécurisée.
+
+Voici comment configurer le tunnel GRE
+
+1. Configurer un tunnel d'interface qui est une interface logique et lui attribuer une adresse
+
+Router(config)#interface tunnel [ID]
+
+Router(config-if)#ip address [Adresse/Masque]
+
+2. Configurer les extrémités pour l'interface de tunnel (source et destination)
+
+Router(config)# tunnel source {ip_source I interface}
+
+Router(config)#tunnel destination {Ip_dest I nom _ hôte}
+
+Commandes de vérification
+
+Router#show interface tunnel [ID]
+
+Conclusion
+
+Le choix d'un tunnel dépendra surtout des besoins opérationnels des entreprises, mais combiner les deux permettrait de gagner en sécurité en ne se souciant pas du type de trafic réseau pouvant être transporté.</p>
                         </div>
                     </div>
                     </div>
